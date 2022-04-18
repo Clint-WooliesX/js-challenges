@@ -17,7 +17,7 @@
  * @returns {string} John Smith
  */
 export const createFullName = (firstName, lastName) => {
-  /* Write your code here */
+  return firstName + " " + lastName;
 };
 
 /**
@@ -28,8 +28,12 @@ export const createFullName = (firstName, lastName) => {
  * @param {number} number2 200
  * @returns {number} 100
  */
-export const findSmallestNumber = (/* Write the parameters here */) => {
-  /* Write your code here */
+export const findSmallestNumber = (number1, number2) => {
+  if (number1 < number2) {
+    return number1;
+  } else {
+    return number2;
+  }
 };
 
 /**
@@ -40,8 +44,9 @@ export const findSmallestNumber = (/* Write the parameters here */) => {
  * @param {number} number2 6
  * @returns {number} 18
  */
-export const multiplyNumbers = (/* Write the parameters here */) => {
-  /* Write your code here */
+export const multiplyNumbers = (number1, number2) => {
+  var product = number1 * number2;
+  return product;
 };
 
 /* Intermediate Challenges */
@@ -57,7 +62,14 @@ export const multiplyNumbers = (/* Write the parameters here */) => {
  * @returns {string} "You got a new high score!" | "So close!" | "Better luck next time!"
  */
 export const checkIfNewHighScore = (score, highScore) => {
-  /* Write your code here */
+  switch (true) {
+    case score > highScore:
+      return "You got a new high score!";
+    case score == highScore:
+      return "So close!";
+    case score < highScore:
+      return "Better luck next time!";
+  }
 };
 
 /**
@@ -67,7 +79,10 @@ export const checkIfNewHighScore = (score, highScore) => {
  * @returns {string} "15 degrees celsius is 59 degrees fahrenheit"
  */
 export const celsiusToFahrenheit = (tempInCelsius) => {
-  /* Write your code here */
+  var result = (tempInCelsius * 9) / 5 + 32;
+  return (
+    tempInCelsius + " degrees celsius is " + result + " degrees fahrenheit"
+  );
 };
 
 /**
@@ -80,7 +95,7 @@ export const celsiusToFahrenheit = (tempInCelsius) => {
  * @returns {number} 47450
  */
 export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
-  /* Write your code here */
+  return (maxAge - age) * 365 * snickersPerDay;
 };
 
 /* Advanced Challenges */
@@ -100,7 +115,37 @@ export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
  * @returns {string} A - F | Score unavailable
  */
 export const getGrade = (score) => {
-  /* Write your code here */
+  var grade;
+  switch (true) {
+    case isNaN(score) || typeof score !== "number":
+      grade = "Score unavailable";
+      break;
+    case score >= 80 && !(score > 100):
+      grade = "A";
+      break;
+    case score >= 70 && !(score > 79):
+      grade = "B";
+      break;
+    case score >= 60 && !(score > 69):
+      grade = "C";
+      break;
+    case score >= 50 && !(score > 59):
+      grade = "D";
+      break;
+    case score >= 40 && !(score > 49):
+      grade = "E";
+      break;
+    case score >= 0 && !(score > 39):
+      grade = "F";
+      break;
+    case score < 0:
+      grade = "Score unavailable";
+      break;
+    case score > 100:
+      grade = "Score unavailable";
+      break;
+  }
+  return grade;
 };
 
 /**
@@ -110,9 +155,10 @@ export const getGrade = (score) => {
  * @returns {number} 28.27
  */
 export const calculateAreaOfCircle = (radius) => {
-  /* Write your code here */
+  var area = Math.PI * Math.pow(radius, 2);
+  var area2dp = area.toFixed(2);
+  return parseFloat(area2dp);
 };
-
 /* Expert Challenge */
 
 /**
@@ -131,5 +177,35 @@ export const calculateAreaOfCircle = (radius) => {
  * @param {string} name John
  */
 export const getStudentSummary = (score, name) => {
-  /* Write your code here */
+  var grade;
+  switch (true) {
+    case isNaN(score) || typeof score !== "number" || score < 0 || score > 100:
+      grade =
+        "My apologies " +
+        name +
+        ", there's been an error in processing your grade.";
+      break;
+    case score >= 80 && !(score > 100):
+      grade = "Congratulations " + name + "! You achieved a grade of A.";
+      break;
+    case score >= 70 && !(score > 79):
+      grade = "Well done " + name + "! You achieved a grade of B.";
+      break;
+    case score >= 60 && !(score > 69):
+      grade = "Nicely done " + name + "! You achieved a grade of C.";
+      break;
+    case score >= 50 && !(score > 59):
+      grade = "That's okay " + name + ". You achieved a grade of D.";
+      break;
+    case score >= 40 && !(score > 49):
+      grade = "Too bad " + name + ". You achieved a grade of E.";
+      break;
+    case score >= 0 && !(score > 39):
+      grade =
+        "Sorry " +
+        name +
+        ". You achieved a grade of F. There's always next year.";
+      break;
+  }
+  return grade;
 };
