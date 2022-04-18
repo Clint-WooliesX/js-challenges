@@ -82,10 +82,9 @@ export const totalRange = (rangeMax) => {
  */
 
 export const moveFirstAndLastItems = (itemsArr) => {
-  const result = [...itemsArr];
-  const lastItem = result.pop();
-  result.unshift(lastItem);
-  return result;
+let newArray = [...itemsArr];
+let lastPos = newArray.pop();
+newArray.unshift(lastPos);
 };
 
 /**
