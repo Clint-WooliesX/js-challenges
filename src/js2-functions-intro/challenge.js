@@ -115,7 +115,7 @@ export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
  * @returns {string} A - F | Score unavailable
  */
 export const getGrade = (score) => {
-  var grade;
+  let grade;
   switch (true) {
     case isNaN(score) || typeof score !== "number":
       grade = "Score unavailable";
@@ -155,8 +155,8 @@ export const getGrade = (score) => {
  * @returns {number} 28.27
  */
 export const calculateAreaOfCircle = (radius) => {
-  var area = Math.PI * Math.pow(radius, 2);
-  var area2dp = area.toFixed(2);
+  let area = Math.PI * Math.pow(radius, 2);
+  let area2dp = area.toFixed(2);
   return parseFloat(area2dp);
 };
 /* Expert Challenge */
@@ -177,35 +177,20 @@ export const calculateAreaOfCircle = (radius) => {
  * @param {string} name John
  */
 export const getStudentSummary = (score, name) => {
-  var grade;
-  switch (true) {
-    case isNaN(score) || typeof score !== "number" || score < 0 || score > 100:
-      grade =
-        "My apologies " +
-        name +
-        ", there's been an error in processing your grade.";
-      break;
-    case score >= 80 && !(score > 100):
-      grade = "Congratulations " + name + "! You achieved a grade of A.";
-      break;
-    case score >= 70 && !(score > 79):
-      grade = "Well done " + name + "! You achieved a grade of B.";
-      break;
-    case score >= 60 && !(score > 69):
-      grade = "Nicely done " + name + "! You achieved a grade of C.";
-      break;
-    case score >= 50 && !(score > 59):
-      grade = "That's okay " + name + ". You achieved a grade of D.";
-      break;
-    case score >= 40 && !(score > 49):
-      grade = "Too bad " + name + ". You achieved a grade of E.";
-      break;
-    case score >= 0 && !(score > 39):
-      grade =
-        "Sorry " +
-        name +
-        ". You achieved a grade of F. There's always next year.";
-      break;
+  switch (getGrade(score)) {
+    case "A":
+      return `Congratulations ${name}! You achieved a grade of A.`;
+    case "B":
+      return `Well done ${name}! You achieved a grade of B.`;
+    case "C":
+      return `Nicely done ${name}! You achieved a grade of C.`;
+    case "D":
+      return `That's okay ${name}. You achieved a grade of D.`;
+    case "E":
+      return `Too bad ${name}. You achieved a grade of E.`;
+    case "F":
+      return `Sorry ${name}. You achieved a grade of F. There's always next year.`;
+    default:
+      return `My apologies ${name}, there's been an error in processing your grade.`;
   }
-  return grade;
 };

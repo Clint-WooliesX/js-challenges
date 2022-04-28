@@ -33,7 +33,7 @@ export const createRecipeString = (ingredientsArr) => {
  */
 
 export const getFirstAndLastItems = (itemsArr) => {
-  var newArray = [itemsArr[0], itemsArr[itemsArr.length - 1]];
+  const newArray = [itemsArr[0], itemsArr[itemsArr.length - 1]];
   return newArray;
 };
 
@@ -45,9 +45,9 @@ export const getFirstAndLastItems = (itemsArr) => {
  */
 
 export const totalScores = (scoreArr) => {
-  var total = 0;
-  for (var i in scoreArr) {
-    total += scoreArr[i];
+  let total = 0;
+  for (let i of scoreArr) {
+    total += i;
   }
   return total;
 };
@@ -179,8 +179,8 @@ export const generateHighscores = (playersArr, scoresArr) => {
   if (playersArr.length != scoresArr.length || !playersArr.length) {
     return "invalid inputs";
   }
-  let playerScore = [];
-  var p = 1;
+  const playerScore = [];
+  let p = 1;
   for (var i in playersArr) {
     playerScore[i] = `P:${p} ${playersArr[i]} scored`;
     p++;
@@ -218,5 +218,12 @@ export const generateHighscores = (playersArr, scoresArr) => {
 // };
 
 export const encryptString = (toEncrypt) => {
+
+  const strings=[[],[],[]]
+
+  for(i=0;i<3;i++){
+    for(j=0;j<3)strings[i]=toEncrypt[j]
+  }
+
   return;
 };
