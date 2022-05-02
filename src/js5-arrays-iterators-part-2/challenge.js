@@ -22,7 +22,8 @@
  */
 
 export const totalScoresArr = (scoresArr) => {
-  return;
+  let sum = scoresArr.reduce(value => sum+=value)
+  return sum;
 };
 
 /**

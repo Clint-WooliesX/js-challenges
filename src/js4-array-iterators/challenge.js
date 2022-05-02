@@ -157,8 +157,12 @@ export const formatStringArray = (stringArr) => {
  */
 
 export const formatString = (string) => {
-  const newArray = string.split()
-  return;
+  const newArray = string.toLowerCase().split('');
+  const cleanArray = newArray.filter(char => char.match(/[a-z]/g));
+  const cased = cleanArray.map((char, i) => (i % 2 === 0 ? char.toUpperCase() : char.toLowerCase()))
+
+
+  return cased;
 };
 
 /**
