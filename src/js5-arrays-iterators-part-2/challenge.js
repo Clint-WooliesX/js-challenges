@@ -22,7 +22,7 @@
  */
 
 export const totalScoresArr = (scoresArr) => {
-  let sum = scoresArr.reduce(value => sum+=value)
+  let sum = scoresArr.reduce((prev, cur) => (prev + cur));
   return sum;
 };
 
@@ -36,7 +36,9 @@ export const totalScoresArr = (scoresArr) => {
  */
 
 export const reverseString = (toReverse) => {
-  return;
+  const string2Array = toReverse.split('');
+  const revArray = string2Array.reverse();
+  return revArray.join('');
 };
 
 /**
@@ -49,7 +51,9 @@ export const reverseString = (toReverse) => {
  */
 
 export const sortCharactersAlphabetically = (charcterArr) => {
-  return;
+  const cased = charcterArr.map(x => x.toLowerCase());
+  const sorted = cased.sort();
+  return sorted;
 };
 
 /**
@@ -64,7 +68,9 @@ export const sortCharactersAlphabetically = (charcterArr) => {
  */
 
 export const sortNumbersHighToLow = (numberArr) => {
-  return;
+  const lo2hi = numberArr.sort((a,b)=>(a-b))
+  const hi2lo = lo2hi.reverse()
+  return hi2lo;
 };
 
 /**
@@ -95,7 +101,8 @@ export const checkItemInstock = (toCheck) => {
     "blueberry",
     "melon",
   ];
-  return;
+  if (stockList.includes(toCheck)) return `${toCheck} is instock, it is on aisle ${stockList.indexOf(toCheck)}.`;
+  return `Sorry ${toCheck} is not instock.`;
 };
 
 /**
@@ -109,7 +116,8 @@ export const checkItemInstock = (toCheck) => {
  */
 
 export const checkPrimaryColours = (coloursArr) => {
-  return;
+  const primary = ['red','blue','yellow']
+  return coloursArr.every(x => primary.includes(x))
 };
 
 /**
@@ -126,7 +134,9 @@ export const checkPrimaryColours = (coloursArr) => {
  */
 
 export const checkStringPalindrome = (stringOne) => {
-  return;
+  const string2array=stringOne.split('')
+  if(stringOne===string2array.reverse().join(''))return true;
+  return false;
 };
 
 /**
@@ -140,7 +150,9 @@ export const checkStringPalindrome = (stringOne) => {
  */
 
 export const totalNestedScoresArr = (scoresArr) => {
-  return;
+
+  const score = scoresArr.map(totalScoresArr)
+  return score;
 };
 
 /**
