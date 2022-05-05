@@ -21,7 +21,7 @@
  * @return {number} The price of the piece of furniture
  */
 export const getFurniturePrice = (furniture) => {
-  /* Write code here */
+  return furniture.price;
 };
 
 /**
@@ -32,7 +32,9 @@ export const getFurniturePrice = (furniture) => {
  * @returns {{name: string, price: number, location: string}} furniture - A furniture object from the catalogue
  */
 export const setFurnitureStoreLocation = (furniture, location) => {
-  /* Write code here */
+  const newFurniture = { ...furniture };
+  newFurniture.location = location;
+  return newFurniture;
 };
 
 /**
@@ -46,7 +48,15 @@ export const setFurnitureStoreLocation = (furniture, location) => {
  * @returns {{name: string, noOfSeats: number, engineType: string, canTravelSolarSystems: boolean}} spaceship - The space ship object
  */
 export const makeSpaceship = (name, noOfSeats, engineType, canTravelSolarSystems) => {
-  /* Write code here */
+  const spaceship = (
+    name, noOfSeats, engineType, canTravelSolarSystems => {
+      const spaceship = {};
+      spaceship.name = name;
+      spaceship.noOfSeats = noOfSeats;
+      spaceship.engineType = engineType;
+      spaceship.canTravelSolarSystems = canTravelSolarSystems;
+    });
+  return spaceship();
 };
 
 /* Intermediate Challenges */
@@ -108,7 +118,10 @@ export const getUserAddress = (user) => {
  * @return {{id: number, name: string, allergies: string[], safeAllergens: string[]}} customer
  */
 export const setSafeAllergens = (customer, allergenList) => {
-  /* Write code here */
+  const customerAllergies={...customer}
+  customerAllergies.safeAllergens = allergenList.filter((safe) => (!customerAllergies.allergies.includes(safe)));
+  return customerAllergies
+
 };
 
 /* Expert Challenge */

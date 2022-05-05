@@ -12,7 +12,7 @@ const {
   mergeFurniture
 } = challenge;
 
-describe("getFurniturePrice() tests", () => {
+xdescribe("getFurniturePrice() tests", () => {
   const table = { name: "lack", price: 6 };
   const cabinet = { name: "brimnes", price: 55 };
 
@@ -161,7 +161,7 @@ xdescribe("getUserAddress() tests", () => {
   });
 });
 
-xdescribe("setSafeAllergens() tests", () => {
+describe("setSafeAllergens() tests", () => {
   const allergenList = [
     "celery",
     "gluten",
